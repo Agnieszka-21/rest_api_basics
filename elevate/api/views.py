@@ -8,7 +8,7 @@ from . serializers import ProductSerializer
 
 
 @api_view(['GET', 'POST'])
-def product_list(request):
+def product_list(request, format=None):
 
     if request.method == 'GET':
         products = Product.objects.all()
@@ -25,7 +25,7 @@ def product_list(request):
         
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def product(request, pk):
+def product(request, pk, format=None):
     try:
         product = Product.objects.get(id=pk)
     except:
